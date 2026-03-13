@@ -4,7 +4,7 @@ import streamlit as st
 import plotly.express as px
 
 #loading data
-df=pd.read_csv("sales_data_sample.csv")
+df=pd.read_csv("sales_data_sample.csv",encoding='unicode_escape')
 
 p1,p2,p3,p4=st.columns(4)
 sales=int(df["SALES"].sum()/1000)
@@ -37,4 +37,5 @@ with c1:
     st.plotly_chart(fig2,use_container_width=True)
 with c2:
     fig3=px.pie(data_frame=df,names="DEALSIZE",values="QUANTITYORDERED")
+
     st.plotly_chart(fig3,use_container_width=True)
